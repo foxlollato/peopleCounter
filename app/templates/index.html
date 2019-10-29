@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="5">
     <title>Visitantes</title>
-    <h1 style="color:red;font-size:40px;">Visitantes</h1>
-    <div style="color:red;font-size:40px;margin-left: 50px" >
     
-    {{ quantidade }}
-    </div>
-    <table>
-        <tr><th>ID</th>
-            <th>TIPO</th>
-            <th>DATA</th>
-        </tr>
-        {%for visitor in visitors%}
-        <tr>
-            <td>{{ visitor.id }}</td>
-            <td>{{ visitor.detect_type }}</td>
-            <td>{{ visitor.detect_date }}</td>
-        </tr>
-        {% endfor %}        
-    </table>
 </head>
 <body>
-
+        <h1 style="color:red;font-size:40px;">Visitantes</h1>
+        <div style="color:red;font-size:40px;margin-left: 50px" >
+        
+        {{ quantidade }}
+        </div>
+        <table>
+            <tr><th>ID</th>
+                <th>TIPO</th>
+                <th>DATA</th>
+            </tr>
+            {%for visitor in visitors%}
+            <tr>
+                <td>{{ visitor.id }}</td>
+                <td>{{ visitor.detect_type }}</td>
+                <td>{{ visitor.detect_date }}</td>
+            </tr>
+            {% endfor %}        
+        </table>
 </body>
 </html>
