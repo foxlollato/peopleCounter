@@ -2,3 +2,4 @@ app/__pycache__
 app/db.sqlite3
 .vscode/
 venv/
+migrations/
