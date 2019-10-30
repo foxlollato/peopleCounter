@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatorio de Visitantes</title>    
+</head>
+<body>
+    <form method="POST" action="">
+            <label for="date-start">Início:</label>
+            <input type="datetime-local" id="date-start"
+                   name="date-start" value="2019-10-01T00:00"
+                   min="2019-01-01T00:00" max="2200-12-31T23:59"/>
+                    <br/>
+                   
+            <label for="date-end">Fim:</label>
+            <input type="datetime-local" id="date-end"
+                   name="date-end" value="2019-10-01T00:00"
+                   min="2019-01-01T00:00" max="2200-12-31T23:59"/>
+                   <br/>
+
+            <input type="submit" value="Gerar Relatório"/>
+
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            
+            <p>{{ message }}</p>
+
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        {% if visitors %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>TIPO</th>
+                <th>DATA</th>
+            </tr>
+            
+            {% for visitor in visitors %}
+            <tr>
+                <td>{{ visitor.id }}</td>
+                <td>{{ visitor.detect_type }}</td>
+                <td>{{ visitor.detect_date.strftime('%b/%d/%Y %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+</body>
+</html>
