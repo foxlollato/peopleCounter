@@ -36,20 +36,27 @@
 </div> 
    
         {% if visitors %}
-        <table>
+        
+        <div class="column is-4 is-offset-4">
+        <div class="box">
+        <table class="table is-striped is-fullwidth">
+            
             <tr>
-                <th>ID</th>
-                <th>TIPO</th>
-                <th>DATA</th>
+                <th class="has-text-centered">ID</th>
+                <th class="has-text-centered">TIPO</th>
+                <th class="has-text-centered">DATA</th>
             </tr>
             
             {% for visitor in visitors %}
             <tr>
-                <td>{{ visitor.id }}</td>
-                <td>{{ visitor.detect_type }}</td>
-                <td>{{ visitor.detect_date.strftime('%b/%d/%Y %H:%M:%S') }}</td>
+                <td class="has-text-centered">{{ visitor.id }}</td>
+                <td class="has-text-centered">{{ visitor.detect_type }}</td>
+                <td class="has-text-centered">{{ visitor.detect_date.strftime('%b/%d/%Y %H:%M:%S') }}</td>
             </tr>
+        
             {% endfor %}
         </table>
+</div>
+</div>
         {% endif %}
 {% endblock %}
