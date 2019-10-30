@@ -12,18 +12,5 @@
         
         {{ quantidade }}
         </div>
-        <table>
-            <tr><th>ID</th>
-                <th>TIPO</th>
-                <th>DATA</th>
-            </tr>
-            {%for visitor in visitors%}
-            <tr>
-                <td>{{ visitor.id }}</td>
-                <td>{{ visitor.detect_type }}</td>
-                <td>{{ visitor.detect_date }}</td>
-            </tr>
-            {% endfor %}        
-        </table>
 </body>
 </html>
