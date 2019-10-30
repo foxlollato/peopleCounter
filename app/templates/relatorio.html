@@ -17,18 +17,21 @@
 
 <form method="POST" action="">
     <label for="date-start">Início:</label>
-    <input type="datetime-local" id="date-start"
+    <input class="input is-medium" type="datetime-local" id="date-start"
            name="date-start" value="2019-10-01T00:00"
            min="2019-01-01T00:00" max="2200-12-31T23:59"/>
             <br/>
            
     <label for="date-end">Fim:</label>
-    <input type="datetime-local" id="date-end"
+    <div class="field">
+            <div class="control">
+    <input class="input is-medium" type="datetime-local" id="date-end"
            name="date-end" value="2019-10-01T00:00"
            min="2019-01-01T00:00" max="2200-12-31T23:59"/>
-           <br/>
+        </div>
+    </div>
 
-    <input type="submit" value="Gerar Relatório"/>
+    <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Gerar Relatório"/>
 
 </form>
   
