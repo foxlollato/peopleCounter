@@ -10,6 +10,15 @@ def create_app():
     app.config['SECRET_KEY'] = '12345abcde'
     db.init_app(app)
 
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    from .models import User
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 

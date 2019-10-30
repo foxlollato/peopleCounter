@@ -1,35 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Relatorio de Visitantes</title>    
-</head>
-<body>
-    <form method="POST" action="">
-            <label for="date-start">Início:</label>
-            <input type="datetime-local" id="date-start"
-                   name="date-start" value="2019-10-01T00:00"
-                   min="2019-01-01T00:00" max="2200-12-31T23:59"/>
-                    <br/>
-                   
-            <label for="date-end">Fim:</label>
-            <input type="datetime-local" id="date-end"
-                   name="date-end" value="2019-10-01T00:00"
-                   min="2019-01-01T00:00" max="2200-12-31T23:59"/>
-                   <br/>
+{% extends "base.html" %}
 
-            <input type="submit" value="Gerar Relatório"/>
-
-    </form>
+{% block content %}
+<div class="column is-4 is-offset-4">
+<h3 class="title">
+    Relatório de visitantes:
+  </h3>
+  <div class="box">
+  
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-        {% for message in messages %}
-            
-            <p>{{ message }}</p>
-
-        {% endfor %}
+    <div class="notification is-danger">           
+            {{ messages[0] }}
+        </div>
     {% endif %}
 {% endwith %}
+
+<form method="POST" action="">
+    <label for="date-start">Início:</label>
+    <input type="datetime-local" id="date-start"
+           name="date-start" value="2019-10-01T00:00"
+           min="2019-01-01T00:00" max="2200-12-31T23:59"/>
+            <br/>
+           
+    <label for="date-end">Fim:</label>
+    <input type="datetime-local" id="date-end"
+           name="date-end" value="2019-10-01T00:00"
+           min="2019-01-01T00:00" max="2200-12-31T23:59"/>
+           <br/>
+
+    <input type="submit" value="Gerar Relatório"/>
+
+</form>
+  
+</div>
+</div> 
+   
         {% if visitors %}
         <table>
             <tr>
@@ -47,5 +52,4 @@
             {% endfor %}
         </table>
         {% endif %}
-</body>
-</html>
+{% endblock %}
