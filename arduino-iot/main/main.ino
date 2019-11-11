@@ -48,7 +48,7 @@ void exec(String action){
 }
 
 void loop() {
-    //"listening" sIn value LOW
+    //"listening" IN sensor value. Wanted value = LOW
     if(digitalRead(sIn) == LOW){
       delay(10);
       //if sensor blocked, wait unblock
@@ -58,7 +58,7 @@ void loop() {
       exec("entrada");
     }
 
-    //same as above
+    //same as above, but for OUT sensor
     if(digitalRead(sOut) == LOW){
       delay(10);
       while(digitalRead(sOut) == LOW){
