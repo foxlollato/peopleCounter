@@ -14,12 +14,6 @@ void setup() {
   ESP8266.begin(9600);
 }
 
-void printResponse() {
-  while (ESP8266.available()) {
-    Serial.println(ESP8266.readStringUntil('\n')); 
-  }
-}
-
 void exec(String action){
   String cmd = "GET /"+action+" HTTP/1.1";
   ESP8266.println("AT+CIPSTART=\"TCP\",\"192.168.0.112\",8081");
