@@ -20,7 +20,7 @@ def entrada():
     detect = Detect(detect_type='entrada')
     db.session.add(detect)
     db.session.commit()
-    return jsonify({'Visitantes': 'entrou'})
+    return jsonify({'Sentido': 'entrada'})
 
 
 @main.route('/saida')
@@ -28,7 +28,7 @@ def saida():
     detect = Detect(detect_type='saida')
     db.session.add(detect)
     db.session.commit()        
-    return jsonify({'Visitantes': 'saiu'})
+    return jsonify({'Sentido': 'saida'})
 
 
 @main.route('/monitor')
